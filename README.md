@@ -21,7 +21,7 @@ winget install editorconfig-checker.editorconfig-checker
 ```
 
 ### Formatter
-The default configured formatters are defined in [non-ls.lua](./lua/plugins/none-ls.lua), please update the list if needed.
+The default configured formatters are defined in [none-ls.lua](./lua/plugins/none-ls.lua), please update the list if needed.
 none-ls acts as a proxy LSP server, that using other formatters internally, those needs to be installed via mason `:Mason`.
 
 ### Build Markdown Preview
