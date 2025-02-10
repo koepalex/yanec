@@ -1,6 +1,6 @@
 local keymap = vim.keymap
-local lsp = vim.lsp
 local diag = vim.diagnostic
+local lsp = vim.lsp
 
 -- fuzzy finding using telescope
 local builtin = require("telescope.builtin")
@@ -32,8 +32,8 @@ keymap.set("n", "<leader>f", lsp.buf.format, { desc = "[f]ormatting file" })
 keymap.set("n", "<leader>q", "<C-v>", { desc = "enter visual block mode" })
 keymap.set("v", ">", ">gv", { desc = "indent right" })
 keymap.set("v", "<", "<gv", { desc = "indent left" })
-keymap.set("v", "K", ":m -2<CR>", { desc = "move single line up" })
-keymap.set("v", "J", ":m +1<CR>", { desc = "move single line down" })
+keymap.set("v", "K", ":m -2<CR>V", { desc = "move single line up" })
+keymap.set("v", "J", ":m +1<CR>V", { desc = "move single line down" })
 keymap.set("n", "<leader>uni", ":UnicodeSearch!", { desc = "insert [uni]code symbol" })
 
 -- plugin key mappings
