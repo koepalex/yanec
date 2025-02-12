@@ -41,6 +41,18 @@ keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "show [m]arkdown 
 keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "[m]arkdown preview [s]top" })
 keymap.set("n", "<leader>??", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
 keymap.set("n", "<leader>?", ":lua require('which-key').show({ global = false })<CR>", { desc = "show buffer local keymaps (which-key)" })
+keymap.set("n", "<A-.>", ":BufferNext<CR>", { desc = "Jump to next tab" })
+keymap.set("n", "<A-,>", ":BufferPrevious<CR>", { desc = "Jump to previous tab" })
+keymap.set("n", "<A-1>", ":BufferGoto 1<CR>", { desc = "Jump to buffer 1" })
+keymap.set("n", "<A-2>", ":BufferGoto 2<CR>", { desc = "Jump to buffer 2" })
+keymap.set("n", "<A-3>", ":BufferGoto 3<CR>", { desc = "Jump to buffer 3" })
+keymap.set("n", "<A-4>", ":BufferGoto 4<CR>", { desc = "Jump to buffer 4" })
+keymap.set("n", "<A-5>", ":BufferGoto 5<CR>", { desc = "Jump to buffer 5" })
+keymap.set("n", "<A-6>", ":BufferGoto 6<CR>", { desc = "Jump to buffer 6" })
+keymap.set("n", "<A-7>", ":BufferGoto 7<CR>", { desc = "Jump to buffer 7" })
+keymap.set("n", "<A-8>", ":BufferGoto 8<CR>", { desc = "Jump to buffer 8" })
+keymap.set("n", "<A-9>", ":BufferGoto 9<CR>", { desc = "Jump to buffer 9" })
+keymap.set("n", "<A-0>", ":BufferLast<CR>", { desc = "Jump to buffer 0" })
 
 -- terminal configuration
 keymap.set("n", "<CA-t>", ":Telescope toggleterm_manager<CR>", { desc = "open toggle [t]erminal manager" })
