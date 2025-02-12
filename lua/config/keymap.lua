@@ -41,5 +41,8 @@ keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "show [m]arkdown 
 keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "[m]arkdown preview [s]top" })
 keymap.set("n", "<leader>??", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
 keymap.set("n", "<leader>?", ":lua require('which-key').show({ global = false })<CR>", { desc = "show buffer local keymaps (which-key)" })
+
+-- terminal configuration
 keymap.set("n", "<CA-t>", ":Telescope toggleterm_manager<CR>", { desc = "open toggle [t]erminal manager" })
-keymap.set("t", "<CA-t>", "<C-\\><C-n>:Telescope toggleterm_manager<CR>", { desc = "open toggle [t]erminal manager" })
+keymap.set("t", "<CA-t>", "<C-\\><C-n>:Telescope toggleterm_manager<CR><ESC>", { desc = "open toggle [t]erminal manager" })
+keymap.set("t", "<C-w><C-w>", ":<C-\\><C-n><C-W>w", { desc = "enter normal mode and switch window" })
