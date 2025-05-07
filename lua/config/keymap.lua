@@ -35,6 +35,10 @@ keymap.set("v", "<", "<gv", { desc = "indent left" })
 keymap.set("v", "K", ":m -2<CR>V", { desc = "move single line up" })
 keymap.set("v", "J", ":m +1<CR>V", { desc = "move single line down" })
 keymap.set("n", "<leader>uni", ":UnicodeSearch!", { desc = "insert [uni]code symbol" })
+keymap.set("n", "<C-B>", "0", { desc = "jump to begin of line" })
+keymap.set("n", "<C-E>", "$", { desc = "jump to end of line" })
+keymap.set("i", "jk", "<esc>", { desc = "escape" })
+keymap.set("i", "zz", ":wq", { desc = "write and quite" })
 
 -- plugin key mappings
 keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "show [m]arkdown [p]review" })

@@ -5,11 +5,12 @@ return {
         config = function()
             local opts = {
                 shell = "nu",
-                direction = "horizontal",
+                direction = "vertical",
                 start_in_insert = false,
                 float_opts = {
                     border = "curved",
                 },
+                size = 120,
             }
             require("toggleterm").setup(opts)
         end,
