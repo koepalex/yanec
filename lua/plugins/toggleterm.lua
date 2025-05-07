@@ -4,7 +4,7 @@ return {
         version = "*",
         config = function()
             local opts = {
-                shell = "nu",
+                shell = "pwsh",
                 direction = "vertical",
                 start_in_insert = false,
                 float_opts = {
