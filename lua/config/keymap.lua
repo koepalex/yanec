@@ -39,6 +39,7 @@ keymap.set("n", "<C-B>", "0", { desc = "jump to begin of line" })
 keymap.set("n", "<C-E>", "$", { desc = "jump to end of line" })
 keymap.set("i", "jk", "<esc>", { desc = "escape" })
 keymap.set("i", "zz", ":wq", { desc = "write and quite" })
+keymap.set("i", "<C-s>", "<esc>:wa<esc>i", { desc = "write all files" })
 
 -- plugin key mappings
 keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "show [m]arkdown [p]review" })
