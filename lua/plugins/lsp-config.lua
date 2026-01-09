@@ -21,23 +21,23 @@ return {
         config = function() 
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup({
+            local lspconfig = vim.lsp.config
+            lspconfig('lua_ls',{
                 capabilities = capabilities
             })
-            lspconfig.csharp_ls.setup({
+            lspconfig('csharp_ls', {
                 capabilities = capabilities
             })
-            lspconfig.jsonls.setup({
+            lspconfig('jsonls', {
                 capabilities = capabilities
             })
-            lspconfig.marksman.setup({
+            lspconfig('marksman', {
                 capabilities = capabilities
             })
-            lspconfig.yamlls.setup({
+            lspconfig('yamlls', {
                 capabilities = capabilities
             })
-            lspconfig.rust_analyzer.setup({
+            lspconfig('rust_analyzer', {
                 capabilities = capabilities,
                 settings = {
                     ['rust-analyzer'] = {
