@@ -47,6 +47,17 @@ return {
                     }
                 }
             })
+            lspconfig('pyright', {
+                filetypes = { "python" },
+                settings = {
+                    python = {
+                        analysis = {
+                            typeCheckingMode = "strict",
+                            diagnosticMode = "workspace",
+                        }
+                    }
+                }
+            })
         end
     }
 }
