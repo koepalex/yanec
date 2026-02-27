@@ -22,7 +22,10 @@ keymap.set("n", "<leader>sh", lsp.buf.signature_help, { desc = "show [s]ignature
 
 keymap.set("n", "<leader>ne", diag.goto_next, { desc = "jump to [n]ext [e]rror" })
 keymap.set("n", "<leader>pe", diag.goto_prev, { desc = "jump to [p]revious [e]rror" })
-keymap.set("n", "<leader>se", diag.open_float, { desc = "[s]how [e]rrors in floating window" })
+keymap.set("n", "<leader>se", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.ERROR})<CR>", { desc = "[s]how [e]rrors in quickfix list" })
+keymap.set("n", "<leader>sw", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.WARN})<CR>", { desc = "[s]how [w]arnings in quickfix list" })
+keymap.set("n", "<leader>si", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.INFO})<CR>", { desc = "[s]how [i]nfos in quickfix list" })
+keymap.set("n", "<leader>sh", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.HINT})<CR>", { desc = "[s]how [h]ints in quickfix list" })
 
 keymap.set("n", "<leader>ca", lsp.buf.code_action, { desc = "show [c]ode [a]ctions" })
 keymap.set("n", "<leader>rn", lsp.buf.rename, { desc = "[r]e[n]ame symbol" })
