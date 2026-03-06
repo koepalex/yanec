@@ -2,6 +2,7 @@ return {
     { "nvim-telescope/telescope.nvim", dependencies = "tsakirist/telescope-lazy.nvim" },
     {
         "nvim-telescope/telescope-ui-select.nvim",
+        event = "VeryLazy",
         config = function()
             require("telescope").setup {
                   extensions = {

@@ -2,6 +2,7 @@ return {
     -- load different LSP servers
     {
         "williamboman/mason.nvim",
+        cmd = {"Mason", "MasonInstall", "MasonUpdate"},
         config = function()
             require("mason").setup()
         end
@@ -9,9 +10,10 @@ return {
     -- configuration API for mason
     {
         "williamboman/mason-lspconfig.nvim",
+        cmd = {"Mason", "MasonInstall", "MasonUpdate"},
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "csharp_ls", "jsonls", "marksman", "rust_analyzer", "yamlls"}
+                ensure_installed = {}
             })
         end
     },

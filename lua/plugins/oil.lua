@@ -1,7 +1,7 @@
 return {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
         local options = {
             default_file_explorer = true,

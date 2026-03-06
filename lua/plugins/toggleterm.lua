@@ -1,6 +1,7 @@
 return {
     {
         "akinsho/toggleterm.nvim",
+        cmd = { "ToggleTerm", "TermExec" },
         version = "*",
         config = function()
             local opts = {
@@ -21,6 +22,7 @@ return {
             "akinsho/nvim-toggleterm.lua",
             "nvim-telescope/telescope.nvim",
         },
+        cmd = { "ToggleTermManager" },
         config = function()
             local toggleterm_manager = require("toggleterm-manager")
             local actions = toggleterm_manager.actions

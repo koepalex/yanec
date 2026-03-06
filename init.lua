@@ -1,4 +1,8 @@
 
+if vim.loader and vim.loader.enable then
+  vim.loader.enable()
+end
+
 -- load general vim options from lua/config/vim-options.lua
 require("config.vim-options")
 -- load lazy.nvim from lua/config/lazy.lua

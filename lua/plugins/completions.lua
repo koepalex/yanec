@@ -2,6 +2,7 @@ return {
 	-- ask every installed LSP for completion information
 	{
 		"hrsh7th/cmp-nvim-lsp",
+        event = "InsertEnter",
 		config = function()
 			local options = {
 				sources = {
@@ -14,6 +15,7 @@ return {
 	-- Snippet engine
 	{
 		"L3MON4D3/LuaSnip",
+        event = "InsertEnter",
 		dependencies = {
 			-- completion for the snippets
 			"saadparwaiz1/cmp_luasnip",
@@ -24,6 +26,7 @@ return {
 	-- (snippet) completion and nvim integration
 	{
 		"hrsh7th/nvim-cmp",
+        event = "InsertEnter",
 		config = function()
 			local cmp = require("cmp")
 
