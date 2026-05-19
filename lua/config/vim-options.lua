@@ -13,3 +13,4 @@ g.maplocalleader = " "
 opt.spelllang = "en_us"
 opt.spell = true
 
+opt.ignorecase = true
