@@ -61,7 +61,7 @@ keymap.set("x", "<leader>bc", "gc", {
 
 -- plugin key mappings
 keymap.set("n", "<leader>mp", "<cmd>Vellum<CR>", { desc = "show [m]arkdown [p]review" })
-keymap.set("n", "<leader>g?", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
+keymap.set("n", "<leader>??", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
 keymap.set("n", "<leader>?", ":lua require('which-key').show({ global = false })<CR>", { desc = "show buffer local keymaps (which-key)" })
 keymap.set("n", "<A-.>", ":BufferNext<CR>", { desc = "Jump to next tab" })
 keymap.set("n", "<A-,>", ":BufferPrevious<CR>", { desc = "Jump to previous tab" })
@@ -75,3 +75,4 @@ keymap.set("n", "<A-7>", ":BufferGoto 7<CR>", { desc = "Jump to buffer 7" })
 keymap.set("n", "<A-8>", ":BufferGoto 8<CR>", { desc = "Jump to buffer 8" })
 keymap.set("n", "<A-9>", ":BufferGoto 9<CR>", { desc = "Jump to buffer 9" })
 keymap.set("n", "<A-0>", ":BufferLast<CR>", { desc = "Jump to buffer 0" })
+keymap.set("n", "<leader>gb", ":Gitsigns blame<CR>", { desc = "[G]it [b]lame" })
