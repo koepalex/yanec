@@ -62,7 +62,3 @@ keymap.set("n", "<A-8>", ":BufferGoto 8<CR>", { desc = "Jump to buffer 8" })
 keymap.set("n", "<A-9>", ":BufferGoto 9<CR>", { desc = "Jump to buffer 9" })
 keymap.set("n", "<A-0>", ":BufferLast<CR>", { desc = "Jump to buffer 0" })
 
--- terminal configuration
-keymap.set("n", "<CA-t>", ":Telescope toggleterm_manager<CR>", { desc = "open toggle [t]erminal manager" })
-keymap.set("t", "<CA-t>", "<C-\\><C-n>:Telescope toggleterm_manager<CR><ESC>", { desc = "open toggle [t]erminal manager" })
-keymap.set("t", "<C-w><C-w>", ":<C-\\><C-n><C-W>w", { desc = "enter normal mode and switch window" })
