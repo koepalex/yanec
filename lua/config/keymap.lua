@@ -60,6 +60,8 @@ keymap.set("x", "<leader>bc", "gc", {
 })
 
 -- plugin key mappings
+keymap.set("n", "<leader>gi", "<cmd>Neogit<CR>", { desc = "show Neo[gi]t UI" })
+keymap.set("n", "<leader>df", "<cmd>DiffviewOpen<CR>", { desc = "[d]iffview [f]ile history" })
 keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "toggle [a]erial view" })
 keymap.set("n", "<leader>st", "<cmd>TodoQuickFix<CR>", { desc = "[s]how [t]odos" })
 keymap.set("n", "<leader>mp", "<cmd>Vellum<CR>", { desc = "show [m]arkdown [p]review" })

@@ -58,6 +58,32 @@ shown in a split.
 LSP documentation uses Tree-sitter rendering; completion remains native.
 Use `:Noice` for message history and `:checkhealth noice` to check the setup.
 
+### Git review and commits
+
+[neogit.lua](./lua/plugins/neogit.lua) loads Neogit and Diffview through
+`vim.pack`, with Diffview and the existing Telescope enabled as Neogit
+integrations.
+
+Use `<leader>gi` (`show Neo[gi]t UI`) to open Neogit's status view.
+Review the Untracked, Unstaged, and Staged sections; use `<Tab>` to expand
+files and hunks, `s` to stage the item under the cursor, and `u` to unstage it.
+Press `c` to open the commit popup and choose its commit action. Only staged
+changes are included unless you explicitly enable a stage-all option.
+Press `d` for the diff popup, then `u` for unstaged changes or `s` for staged
+changes. These actions use Diffview for side-by-side review.
+
+| Command or mapping | Review scope |
+| --- | --- |
+| `:DiffviewOpen` | Unstaged and staged changes in separate file-panel sections, plus untracked files by default |
+| `:DiffviewOpen --cached` | Staged changes only, compared with `HEAD` |
+| `:DiffviewOpen HEAD` | Combined working-tree changes compared with `HEAD`, without separating staged and unstaged portions |
+| `<leader>df` (`:DiffviewFileHistory`) | Committed history across the repository, not pending changes |
+| `:DiffviewFileHistory %` | Committed history of the current file |
+
+In Diffview, use `<Tab>` / `<S-Tab>` to cycle through files and `:DiffviewClose`
+to return to the previous tab. Save edited buffers before reviewing so Git sees
+their latest contents.
+
 ### Code outline
 
 [aerial.lua](./lua/plugins/aerial.lua) loads `aerial.nvim` through `vim.pack`
