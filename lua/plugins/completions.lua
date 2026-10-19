@@ -1,63 +1,33 @@
-return {
-	-- ask every installed LSP for completion information
-	{
-		"hrsh7th/cmp-nvim-lsp",
-        event = "InsertEnter",
-		config = function()
-			local options = {
-				sources = {
-					{ name = "nvim_lsp" },
-				},
-			}
-			require("cmp").setup(options)
-		end,
-	},
-	-- Snippet engine
-	{
-		"L3MON4D3/LuaSnip",
-        event = "InsertEnter",
-		dependencies = {
-			-- completion for the snippets
-			"saadparwaiz1/cmp_luasnip",
-			-- vscode snippet selection
-			"rafamadriz/friendly-snippets",
-		},
-	},
-	-- (snippet) completion and nvim integration
-	{
-		"hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-		config = function()
-			local cmp = require("cmp")
+vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
+vim.opt.complete = { ".", "w", "b" }
+vim.opt.autocomplete = true
+vim.opt.autocompletedelay = 100
 
-			require("luasnip.loaders.from_vscode").lazy_load()
+vim.keymap.set("i", "<Tab>", function()
+  if vim.fn.pumvisible() == 1 then
+    return vim.fn.complete_info({ "selected" }).selected == -1 and "<C-n><C-y>" or "<C-y>"
+  end
+  if vim.snippet.active({ direction = 1 }) then
+    return "<Cmd>lua vim.snippet.jump(1)<CR>"
+  end
+  return "<Tab>"
+end, { expr = true, desc = "Accept completion or jump to next snippet placeholder" })
 
-			cmp.setup({
-				snippet = {
-					-- REQUIRED - you must specify a snippet engine
-					expand = function(args)
-						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-					end,
-				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(),
-					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-				}),
-				sources = cmp.config.sources({
-					-- { name = "nvim_lsp" },
-					-- { name = "vsnip" }, -- For vsnip users.
-					{ name = "luasnip" }, -- For luasnip users.
-				}, {
-					{ name = "buffer" },
-				}),
-			})
-		end,
-	},
-}
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("config.completion", { clear = true }),
+  callback = function(event)
+    local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
+    if client:supports_method("textDocument/completion") then
+      -- 'autocomplete' schedules completion through omnifunc.
+      vim.lsp.completion.enable(true, client.id, event.buf, {
+        autotrigger = false,
+      })
+      vim.bo[event.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+      vim.opt_local.complete:append("o")
+
+      vim.keymap.set("i", "<C-Space>", function()
+        vim.lsp.completion.get()
+      end, { buffer = event.buf, desc = "LSP completion" })
+    end
+  end,
+})

@@ -29,7 +29,13 @@ keymap.set("n", "<leader>sh", ":lua vim.diagnostic.setloclist({severity=vim.diag
 
 keymap.set("n", "<leader>ca", lsp.buf.code_action, { desc = "show [c]ode [a]ctions" })
 keymap.set("n", "<leader>rn", lsp.buf.rename, { desc = "[r]e[n]ame symbol" })
-keymap.set("n", "<leader>f", lsp.buf.format, { desc = "[f]ormatting file" })
+keymap.set("n", "<leader>f", function()
+    require("conform").format({
+        async = false,
+        timeout_ms = 3000,
+        lsp_format = "fallback",
+    })
+end, { desc = "[f]ormatting file" })
 
 -- advanced editing
 keymap.set("n", "<leader>q", "<C-v>", { desc = "enter visual block mode" })
@@ -60,4 +66,3 @@ keymap.set("n", "<A-7>", ":BufferGoto 7<CR>", { desc = "Jump to buffer 7" })
 keymap.set("n", "<A-8>", ":BufferGoto 8<CR>", { desc = "Jump to buffer 8" })
 keymap.set("n", "<A-9>", ":BufferGoto 9<CR>", { desc = "Jump to buffer 9" })
 keymap.set("n", "<A-0>", ":BufferLast<CR>", { desc = "Jump to buffer 0" })
-

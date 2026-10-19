@@ -5,7 +5,11 @@ end
 
 -- load general vim options from lua/config/vim-options.lua
 require("config.vim-options")
--- load lazy.nvim from lua/config/lazy.lua
+require("plugins.completions")
+require("plugins.lsp-config")
+require("plugins.formatting")
+require("plugins.lint")
+require("plugins.treesitter")
 require("plugins.markdown-preview")  -- use Vellum
 require("plugins.alpha")
 require("plugins.lualine")

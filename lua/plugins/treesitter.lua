@@ -1,24 +1,33 @@
-return {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "main",
-    lazy = false,
-    build = ":TSUpdate",
-    config = function()
-        local ensure_installed = { "lua", "c_sharp", "markdown_inline", "mermaid", "rust", "yaml", "json" }
-
-        require("nvim-treesitter").setup()
-        require("nvim-treesitter").install(ensure_installed)
-
-        -- The new main-branch API no longer auto-enables highlighting/indent via
-        -- setup(); enable them per-buffer once a parser is available.
-        vim.api.nvim_create_autocmd("FileType", {
-            callback = function(args)
-                local ok = pcall(vim.treesitter.start, args.buf)
-                if ok then
-                    vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-                end
-            end,
-        })
-    end,
+local parsers = {
+  "lua", "c_sharp", "markdown", "markdown_inline", "mermaid", "rust", "yaml", "json",
 }
 
+vim.api.nvim_create_autocmd("PackChanged", {
+  group = vim.api.nvim_create_augroup("config.treesitter.update", { clear = true }),
+  callback = function(event)
+    if event.data.spec.name == "nvim-treesitter" and event.data.kind == "update" then
+      if not event.data.active then
+        vim.cmd.packadd("nvim-treesitter")
+      end
+      require("nvim-treesitter").update(parsers):wait(300000)
+    end
+  end,
+})
+
+vim.pack.add({
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+})
+
+-- Finish first-time installation before FileType tries to start highlighting.
+require("nvim-treesitter").install(parsers):wait(300000)
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("config.treesitter", { clear = true }),
+  callback = function(event)
+    local language = vim.treesitter.language.get_lang(vim.bo[event.buf].filetype)
+    if vim.tbl_contains(parsers, language) then
+      vim.treesitter.start(event.buf, language)
+      vim.bo[event.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
