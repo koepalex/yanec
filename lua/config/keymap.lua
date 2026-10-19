@@ -60,6 +60,7 @@ keymap.set("x", "<leader>bc", "gc", {
 })
 
 -- plugin key mappings
+keymap.set("n", "<leader>st", "<cmd>TodoQuickFix<CR>", { desc = "[s]how [t]odos" })
 keymap.set("n", "<leader>mp", "<cmd>Vellum<CR>", { desc = "show [m]arkdown [p]review" })
 keymap.set("n", "<leader>??", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
 keymap.set("n", "<leader>?", ":lua require('which-key').show({ global = false })<CR>", { desc = "show buffer local keymaps (which-key)" })

@@ -20,6 +20,7 @@ require("plugins.unicode")
 require("plugins.which-key")
 require("plugins.noice")
 require("plugins.telescope")
+require("plugins.todo-comments")
 require("plugins.theme")
 require("plugins.transparent")
 -- load visual configuration from lua/config/visual.lua

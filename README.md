@@ -56,6 +56,14 @@ shown in a split.
 LSP documentation uses Tree-sitter rendering; completion remains native.
 Use `:Noice` for message history and `:checkhealth noice` to check the setup.
 
+### Todo comments
+
+[todo-comments.lua](./lua/plugins/todo-comments.lua) loads `todo-comments.nvim`
+and its Plenary dependency through `vim.pack`. It highlights markers such as
+`TODO:`, `FIXME:`, and `HACK:`.
+Use `<leader>st` (`[s]how [t]odos`) to run `:TodoQuickFix` and list project
+markers in the quickfix window. Searching requires `ripgrep` (`rg`) on `PATH`.
+
 ### Formatter
 
 [formatting.lua](./lua/plugins/formatting.lua) configures Conform.
