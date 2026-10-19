@@ -7,6 +7,10 @@ vim.api.nvim_create_autocmd("UIEnter", {
       "https://github.com/folke/noice.nvim",
     }, { load = true })
 
+    require("notify").setup({
+      background_colour = require("catppuccin.palettes").get_palette().base,
+    })
+
     require("noice").setup({
       routes = {
         {

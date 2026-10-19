@@ -51,10 +51,19 @@ the `friendly-snippets` collection.
 on `UIEnter` through `vim.pack`. The floating command line is centered, with its
 completion menu positioned automatically. Presets keep search on the bottom line
 and show long messages in a split.
+Notifications use Catppuccin's base color for fade animations, avoiding missing
+background-highlight warnings when editor transparency is enabled.
 Shell command output from `:!`, including stderr and exit-status messages, is also
 shown in a split.
 LSP documentation uses Tree-sitter rendering; completion remains native.
 Use `:Noice` for message history and `:checkhealth noice` to check the setup.
+
+### Code outline
+
+[aerial.lua](./lua/plugins/aerial.lua) loads `aerial.nvim` through `vim.pack`
+with default settings, using Tree-sitter or LSP for document symbols.
+Use `<leader>a` (`toggle [a]erial view`) to run `:AerialToggle!`, opening or
+closing the outline without moving focus from the current window.
 
 ### Todo comments
 
