@@ -23,6 +23,14 @@ vim.lsp.config("pyright", {
   },
 })
 
+vim.lsp.config("yamlls", {
+  filetypes = { "yaml" },
+})
+
+vim.lsp.config("marksman", {
+  filetypes = { "markdown" },
+})
+
 vim.lsp.enable({
   "lua_ls",
   "csharp_ls",

@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd("InsertEnter", {
+vim.api.nvim_create_autocmd({"BufReadPost", "BufNewFile"}, {
   once = true,
   callback = function()
     vim.pack.add({

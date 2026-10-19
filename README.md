@@ -72,7 +72,15 @@ Only enable these external tools in trusted projects.
 
 Parser installation requires `curl`, `tar`, a C compiler, and `tree-sitter-cli`
 0.26.1 or later, installed through a package manager rather than npm.
-The first startup waits for parser installation, up to five minutes.
+Parsers are not installed during normal startup. Run this command inside Neovim
+to install the configured parsers for Lua, C#, Markdown (including inline syntax),
+Mermaid, Rust, YAML, and JSON:
+
+```vim
+:TSInstall lua c_sharp markdown markdown_inline mermaid rust yaml json
+```
+
+Wait for installation to finish before opening files that need these parsers.
 Updating the plugin through `vim.pack` also updates the configured parsers.
 Use `:TSUpdate` to update parsers manually.
 

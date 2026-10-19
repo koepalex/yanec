@@ -1,5 +1,5 @@
 local parsers = {
-  "lua", "c_sharp", "markdown", "markdown_inline", "mermaid", "rust", "yaml", "json",
+  "lua", "c_sharp", "markdown", "markdown_inline", "mermaid", "rust", "yaml", "json"
 }
 
 vim.api.nvim_create_autocmd("PackChanged", {
@@ -17,9 +17,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
 vim.pack.add({
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 })
-
--- Finish first-time installation before FileType tries to start highlighting.
-require("nvim-treesitter").install(parsers):wait(300000)
 
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("config.treesitter", { clear = true }),

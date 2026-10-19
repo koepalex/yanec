@@ -8,7 +8,10 @@ keymap.set("n", "<leader>ff", builtin.find_files, { desc = "fuzzy [f]ind [f]iles
 keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "fuzzy [l]ive [g]rep content in workspace files"})
 
 -- file explorer and motions
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "show/hide file [e]xplorer" })
+keymap.set("n", "<leader>e", function()
+  require("plugins.nvim-tree")
+  require("nvim-tree.api").tree.toggle()
+end, { desc = "show/hide file [e]xplorer" })
 keymap.set("n", "-", ":Oil<CR>", { desc = "open parent folder as buffer" })
 keymap.set("n", "s", "<Plug>(leap-forward)", { desc = "leap [s]earch forward" })
 keymap.set("n", "S", "<Plug>(leap-backward)", { desc = "leap [s]earch backward" })
@@ -17,7 +20,6 @@ keymap.set("n", "S", "<Plug>(leap-backward)", { desc = "leap [s]earch backward" 
 keymap.set("n", "K", lsp.buf.hover, { desc = "hover documentation of symbol" })
 keymap.set("n", "gd", lsp.buf.definition, { desc = "[g]oto [d]efinition of symbol" })
 keymap.set("n", "gD", lsp.buf.declaration, { desc = "[g]oto [D]eclaration of symbol" })
-keymap.set("n", "gr", lsp.buf.references, { desc = "[g]oto [R]eferences of symbol" })
 keymap.set("n", "<leader>sh", lsp.buf.signature_help, { desc = "show [s]ignature [h]elp of symbol" })
 
 keymap.set("n", "<leader>ne", diag.goto_next, { desc = "jump to [n]ext [e]rror" })
@@ -25,7 +27,6 @@ keymap.set("n", "<leader>pe", diag.goto_prev, { desc = "jump to [p]revious [e]rr
 keymap.set("n", "<leader>se", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.ERROR})<CR>", { desc = "[s]how [e]rrors in quickfix list" })
 keymap.set("n", "<leader>sw", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.WARN})<CR>", { desc = "[s]how [w]arnings in quickfix list" })
 keymap.set("n", "<leader>si", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.INFO})<CR>", { desc = "[s]how [i]nfos in quickfix list" })
-keymap.set("n", "<leader>shi", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.HINT})<CR>", { desc = "[s]how [h]ints in quickfix list" })
 
 keymap.set("n", "<leader>ca", lsp.buf.code_action, { desc = "show [c]ode [a]ctions" })
 keymap.set("n", "<leader>rn", lsp.buf.rename, { desc = "[r]e[n]ame symbol" })
@@ -60,7 +61,7 @@ keymap.set("x", "<leader>bc", "gc", {
 
 -- plugin key mappings
 keymap.set("n", "<leader>mp", "<cmd>Vellum<CR>", { desc = "show [m]arkdown [p]review" })
-keymap.set("n", "<leader>??", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
+keymap.set("n", "<leader>g?", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
 keymap.set("n", "<leader>?", ":lua require('which-key').show({ global = false })<CR>", { desc = "show buffer local keymaps (which-key)" })
 keymap.set("n", "<A-.>", ":BufferNext<CR>", { desc = "Jump to next tab" })
 keymap.set("n", "<A-,>", ":BufferPrevious<CR>", { desc = "Jump to previous tab" })
