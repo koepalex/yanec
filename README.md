@@ -45,6 +45,17 @@ LSP-provided snippets expand through `vim.snippet`; LuaSnip and
 `friendly-snippets` are no longer loaded. Native completion does not discover
 the `friendly-snippets` collection.
 
+### Command line and notifications
+
+[noice.lua](./lua/plugins/noice.lua) loads Noice, nui.nvim, and nvim-notify
+on `UIEnter` through `vim.pack`. The floating command line is centered, with its
+completion menu positioned automatically. Presets keep search on the bottom line
+and show long messages in a split.
+Shell command output from `:!`, including stderr and exit-status messages, is also
+shown in a split.
+LSP documentation uses Tree-sitter rendering; completion remains native.
+Use `:Noice` for message history and `:checkhealth noice` to check the setup.
+
 ### Formatter
 
 [formatting.lua](./lua/plugins/formatting.lua) configures Conform.
@@ -74,10 +85,10 @@ Parser installation requires `curl`, `tar`, a C compiler, and `tree-sitter-cli`
 0.26.1 or later, installed through a package manager rather than npm.
 Parsers are not installed during normal startup. Run this command inside Neovim
 to install the configured parsers for Lua, C#, Markdown (including inline syntax),
-Mermaid, Rust, YAML, and JSON:
+Mermaid, Rust, YAML, JSON, Vim, regex, and Bash:
 
 ```vim
-:TSInstall lua c_sharp markdown markdown_inline mermaid rust yaml json
+:TSInstall lua c_sharp markdown markdown_inline mermaid rust yaml json vim regex bash
 ```
 
 Wait for installation to finish before opening files that need these parsers.

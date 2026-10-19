@@ -1,5 +1,5 @@
 local parsers = {
-  "lua", "c_sharp", "markdown", "markdown_inline", "mermaid", "rust", "yaml", "json"
+  "lua", "c_sharp", "markdown", "markdown_inline", "mermaid", "rust", "yaml", "json", "vim", "regex", "bash"
 }
 
 vim.api.nvim_create_autocmd("PackChanged", {
