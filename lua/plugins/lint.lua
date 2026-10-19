@@ -5,6 +5,7 @@ vim.pack.add({
 require("lint").linters_by_ft = {
   dockerfile = { "hadolint" },
   json = { "spectral" },
+  python = { "ruff" },
   yaml = { "spectral" },
 }
 

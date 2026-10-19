@@ -28,7 +28,8 @@ Install the following executables separately and make them available on `PATH`:
 | Python | `pyright-langserver` |
 
 Rust diagnostics use Clippy, which must be installed in the Rust toolchain.
-Python analysis uses strict type checking across the workspace.
+Python uses Pyright for strict type checking across the workspace and completion,
+and Ruff for linting.
 Use `:checkhealth vim.lsp` to inspect enabled configurations and attached clients.
 
 ### Completion
@@ -56,8 +57,9 @@ Use `:ConformInfo` to inspect formatter availability and errors.
 
 ### Linting
 
-[lint.lua](./lua/plugins/lint.lua) runs Hadolint for Dockerfiles and Spectral
-for JSON/YAML when files are opened or saved. Install `hadolint` and `spectral`
+[lint.lua](./lua/plugins/lint.lua) runs Hadolint for Dockerfiles, Ruff for Python,
+and Spectral for JSON/YAML when files are opened or saved.
+Install `hadolint`, `ruff`, and `spectral`
 separately and configure a Spectral ruleset for the project.
 Diagnostics are displayed through `vim.diagnostic`.
 Only enable these external tools in trusted projects.
