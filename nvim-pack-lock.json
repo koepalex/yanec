@@ -16,6 +16,10 @@
       "rev": "337ecfadb8bf005050990bf2f624dc4fc828dabd",
       "src": "https://github.com/romgrk/barbar.nvim"
     },
+    "bufferline.nvim": {
+      "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
     "catppuccin": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
@@ -39,6 +43,10 @@
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mini.pairs": {
+      "rev": "03eb1f0062a2cee5314d1ac3939246e4bb21352e",
+      "src": "https://github.com/nvim-mini/mini.pairs"
     },
     "neogit": {
       "rev": "a6549816e62cec7037f1549d8f1659d45635370c",
@@ -96,6 +104,10 @@
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
       "src": "https://github.com/folke/todo-comments.nvim"
+    },
+    "tokyonight.nvim": {
+      "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
+      "src": "https://github.com/folke/tokyonight.nvim"
     },
     "transparent.nvim": {
       "rev": "792b1d6caff49ba0c166921d78495273d25a7edd",

@@ -12,6 +12,22 @@ Change into nvim config directory
 
 Clone the repository `git clone https://github.com/koepalex/yanec.git nvim`
 
+### Appearance and buffer navigation
+
+The editor uses TokyoNight Moon with a transparent background.
+[bufferline.lua](./lua/plugins/bufferline.lua) loads Bufferline on `UIEnter`,
+not during startup, and hides the tabline when only one buffer is open.
+It displays buffer diagnostics and reserves space for the nvim-tree sidebar.
+Use `<A-.>` / `<A-,>` to cycle buffers, `<A-1>` through `<A-9>` to select
+their absolute positions, and `<A-0>` to select the last buffer.
+
+[lualine.lua](./lua/plugins/lualine.lua) also loads on `UIEnter` and uses
+TokyoNight's matching palette. It shows the Git branch, project root name,
+project-relative file path, unsaved/read-only flags, buffer diagnostics, and
+Git added/modified/removed line counts. The project root is the nearest Git
+root, falling back to the current working directory outside a repository.
+Files outside that root display their full path, shortened relative to home.
+
 ### Language Server Protocol servers
 Native LSP clients are enabled in [lsp-config.lua](./lua/plugins/lsp-config.lua).
 `nvim-lspconfig` supplies server defaults; `vim.lsp.config()` supplies overrides.
@@ -39,11 +55,19 @@ for buffer words and LSP candidates, with a 100 ms delay.
 Use `<C-Space>` to request LSP completion, `<C-n>` / `<C-p>` to select,
 `<Tab>` (or `<C-y>`) to accept, and `<C-e>` to cancel. Tab accepts the first
 candidate if none is selected. Without a completion menu, Tab jumps to the next
-active snippet placeholder or inserts normal indentation. Enter inserts a newline.
+active snippet placeholder or inserts normal indentation. Enter does not accept
+completion; it inserts a newline, expanding bracket pairs when appropriate.
 
 LSP-provided snippets expand through `vim.snippet`; LuaSnip and
 `friendly-snippets` are no longer loaded. Native completion does not discover
 the `friendly-snippets` collection.
+
+### Automatic pairs
+
+[pairs.lua](./lua/plugins/pairs.lua) loads `mini.pairs` on the first `InsertEnter`.
+It inserts matching brackets and quotes, skips existing closing characters,
+and handles Backspace and Enter inside pairs. Native completion and Tab
+acceptance remain unchanged.
 
 ### Command line and notifications
 
@@ -51,8 +75,8 @@ the `friendly-snippets` collection.
 on `UIEnter` through `vim.pack`. The floating command line is centered, with its
 completion menu positioned automatically. Presets keep search on the bottom line
 and show long messages in a split.
-Notifications use Catppuccin's base color for fade animations, avoiding missing
-background-highlight warnings when editor transparency is enabled.
+Notifications use TokyoNight Moon's background color for fade animations,
+avoiding missing background-highlight warnings when editor transparency is enabled.
 Shell command output from `:!`, including stderr and exit-status messages, is also
 shown in a split.
 LSP documentation uses Tree-sitter rendering; completion remains native.

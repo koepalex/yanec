@@ -1,9 +1,10 @@
 local opt = vim.opt
-local g = vim.g
-
 -- set the theme
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin-mocha"
+require("tokyonight").setup({
+  style = "moon",
+  transparent = true,
+})
+vim.cmd.colorscheme "tokyonight-moon"
 
 -- enable transparent background
 vim.cmd(":TransparentEnable")

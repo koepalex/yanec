@@ -6,6 +6,7 @@ end
 -- load general vim options from lua/config/vim-options.lua
 require("config.vim-options")
 require("plugins.completions")
+require("plugins.pairs")
 require("plugins.lsp-config")
 require("plugins.formatting")
 require("plugins.lint")
@@ -13,7 +14,8 @@ require("plugins.treesitter")
 require("plugins.markdown-preview")  -- use Vellum
 require("plugins.alpha")
 require("plugins.lualine")
-require("plugins.barbar")
+require("plugins.bufferline")
+require("plugins.gitsigns")
 require("plugins.leap")
 require("plugins.oil")
 require("plugins.unicode")

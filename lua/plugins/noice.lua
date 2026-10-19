@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
     }, { load = true })
 
     require("notify").setup({
-      background_colour = require("catppuccin.palettes").get_palette().base,
+      background_colour = require("tokyonight.colors").setup().bg,
     })
 
     require("noice").setup({
