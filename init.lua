@@ -14,7 +14,6 @@ require("plugins.markdown-preview")  -- use Vellum
 require("plugins.alpha")
 require("plugins.lualine")
 require("plugins.barbar")
-require("plugins.comment")
 require("plugins.leap")
 require("plugins.nvim-tree")
 require("plugins.oil")

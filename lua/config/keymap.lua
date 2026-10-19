@@ -25,11 +25,11 @@ keymap.set("n", "<leader>pe", diag.goto_prev, { desc = "jump to [p]revious [e]rr
 keymap.set("n", "<leader>se", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.ERROR})<CR>", { desc = "[s]how [e]rrors in quickfix list" })
 keymap.set("n", "<leader>sw", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.WARN})<CR>", { desc = "[s]how [w]arnings in quickfix list" })
 keymap.set("n", "<leader>si", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.INFO})<CR>", { desc = "[s]how [i]nfos in quickfix list" })
-keymap.set("n", "<leader>sh", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.HINT})<CR>", { desc = "[s]how [h]ints in quickfix list" })
+keymap.set("n", "<leader>shi", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.HINT})<CR>", { desc = "[s]how [h]ints in quickfix list" })
 
 keymap.set("n", "<leader>ca", lsp.buf.code_action, { desc = "show [c]ode [a]ctions" })
 keymap.set("n", "<leader>rn", lsp.buf.rename, { desc = "[r]e[n]ame symbol" })
-keymap.set("n", "<leader>f", function()
+keymap.set("n", "<leader>cf", function()
     require("conform").format({
         async = false,
         timeout_ms = 3000,
@@ -49,6 +49,14 @@ keymap.set("n", "<C-E>", "$", { desc = "jump to end of line" })
 keymap.set("i", "jk", "<esc>", { desc = "escape" })
 keymap.set("i", "zz", ":wq", { desc = "write and quite" })
 keymap.set("i", "<C-s>", "<esc>:wa<esc>i", { desc = "write all files" })
+keymap.set("n", "<leader>cc", "gcc", {
+  remap = true,
+  desc = "Toggle comment on current line",
+})
+keymap.set("x", "<leader>bc", "gc", {
+  remap = true,
+  desc = "Toggle comments on selected lines",
+})
 
 -- plugin key mappings
 keymap.set("n", "<leader>mp", "<cmd>Vellum<CR>", { desc = "show [m]arkdown [p]review" })
