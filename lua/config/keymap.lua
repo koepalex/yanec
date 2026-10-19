@@ -3,9 +3,14 @@ local diag = vim.diagnostic
 local lsp = vim.lsp
 
 -- fuzzy finding using telescope
-local builtin = require("telescope.builtin")
-keymap.set("n", "<leader>ff", builtin.find_files, { desc = "fuzzy [f]ind [f]iles"})
-keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "fuzzy [l]ive [g]rep content in workspace files"})
+keymap.set("n", "<leader>ff", function()
+  require("plugins.telescope").load()
+  require("telescope.builtin").find_files()
+end, { desc = "fuzzy [f]ind [f]iles"})
+keymap.set("n", "<leader>lg", function()
+  require("plugins.telescope").load()
+  require("telescope.builtin").live_grep()
+end, { desc = "fuzzy [l]ive [g]rep content in workspace files"})
 
 -- file explorer and motions
 keymap.set("n", "<leader>e", function()

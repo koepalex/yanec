@@ -1,13 +1,24 @@
-vim.pack.add({
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/nvim-telescope/telescope.nvim",
-  "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+local load = require("config.lazy-command")(function()
+  vim.pack.add({
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/nvim-telescope/telescope.nvim",
+    "https://github.com/nvim-telescope/telescope-ui-select.nvim",
+  })
+
+  require("telescope").setup({
+    extensions = {
+      ["ui-select"] = require("telescope.themes").get_dropdown({}),
+    },
+  })
+
+  require("telescope").load_extension("ui-select")
+end, {
+  Telescope = {},
 })
 
-require("telescope").setup({
-  extensions = {
-    ["ui-select"] = require("telescope.themes").get_dropdown({}),
-  },
-})
+vim.ui.select = function(...)
+  load()
+  return vim.ui.select(...)
+end
 
-require("telescope").load_extension("ui-select")
+return { load = load }

@@ -61,8 +61,9 @@ Use `:Noice` for message history and `:checkhealth noice` to check the setup.
 ### Git review and commits
 
 [neogit.lua](./lua/plugins/neogit.lua) loads Neogit and Diffview through
-`vim.pack`, with Diffview and the existing Telescope enabled as Neogit
-integrations.
+`vim.pack` on the first Neogit or Diffview command, including command completion.
+Diffview and Telescope are enabled as Neogit integrations; Telescope is loaded
+with them if needed.
 
 Use `<leader>gi` (`show Neo[gi]t UI`) to open Neogit's status view.
 Review the Untracked, Unstaged, and Staged sections; use `<Tab>` to expand
@@ -83,6 +84,13 @@ changes. These actions use Diffview for side-by-side review.
 In Diffview, use `<Tab>` / `<S-Tab>` to cycle through files and `:DiffviewClose`
 to return to the previous tab. Save edited buffers before reviewing so Git sees
 their latest contents.
+
+### Fuzzy finding
+
+[telescope.lua](./lua/plugins/telescope.lua) loads Telescope on the first
+`:Telescope` command, command completion, `<leader>ff` (find files), or
+`<leader>lg` (live grep). The first `vim.ui.select` call also loads Telescope
+and uses its dropdown picker. These plugins are not loaded during startup.
 
 ### Code outline
 
