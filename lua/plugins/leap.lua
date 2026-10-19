@@ -1,7 +1,10 @@
-return {
-    url = "https://codeberg.org/andyg/leap.nvim",
-    event = "InsertEnter",
-    config = function()
-        require("leap").setup({})
-    end
-}
+vim.api.nvim_create_autocmd("InsertEnter", {
+  once = true,
+  callback = function()
+    vim.pack.add({
+      "https://codeberg.org/andyg/leap.nvim",
+    }, { load = true })
+
+    require("leap").setup({})
+  end,
+})

@@ -8,7 +8,7 @@ keymap.set("n", "<leader>ff", builtin.find_files, { desc = "fuzzy [f]ind [f]iles
 keymap.set("n", "<leader>lg", builtin.live_grep, { desc = "fuzzy [l]ive [g]rep content in workspace files"})
 
 -- file explorer and motions
-keymap.set("n", "<leader>e", ":Neotree toggle reveal left<CR>", { desc = "show/hide file [e]xplorer" })
+keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "show/hide file [e]xplorer" })
 keymap.set("n", "-", ":Oil<CR>", { desc = "open parent folder as buffer" })
 keymap.set("n", "s", "<Plug>(leap-forward)", { desc = "leap [s]earch forward" })
 keymap.set("n", "S", "<Plug>(leap-backward)", { desc = "leap [s]earch backward" })
@@ -45,8 +45,7 @@ keymap.set("i", "zz", ":wq", { desc = "write and quite" })
 keymap.set("i", "<C-s>", "<esc>:wa<esc>i", { desc = "write all files" })
 
 -- plugin key mappings
-keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>", { desc = "show [m]arkdown [p]review" })
-keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>", { desc = "[m]arkdown preview [s]top" })
+keymap.set("n", "<leader>mp", "<cmd>Vellum<CR>", { desc = "show [m]arkdown [p]review" })
 keymap.set("n", "<leader>??", ":lua require('which-key').show({ global = true })<CR>", { desc = "show global keymaps (which-key)" })
 keymap.set("n", "<leader>?", ":lua require('which-key').show({ global = false })<CR>", { desc = "show buffer local keymaps (which-key)" })
 keymap.set("n", "<A-.>", ":BufferNext<CR>", { desc = "Jump to next tab" })

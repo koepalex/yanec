@@ -1,7 +1,5 @@
-return {
-    "xiyaowong/transparent.nvim",
-    lazy = false,
-    config = function()
-        require("transparent").setup({})
-    end
-}
+vim.pack.add({
+  "https://github.com/xiyaowong/transparent.nvim",
+}, { load = true })
+
+require("transparent").setup({})

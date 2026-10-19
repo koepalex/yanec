@@ -6,7 +6,19 @@ end
 -- load general vim options from lua/config/vim-options.lua
 require("config.vim-options")
 -- load lazy.nvim from lua/config/lazy.lua
-require("config.lazy")
+require("plugins.markdown-preview")  -- use Vellum
+require("plugins.alpha")
+require("plugins.lualine")
+require("plugins.barbar")
+require("plugins.comment")
+require("plugins.leap")
+require("plugins.nvim-tree")
+require("plugins.oil")
+require("plugins.unicode")
+require("plugins.which-key")
+require("plugins.telescope")
+require("plugins.theme")
+require("plugins.transparent")
 -- load visual configuration from lua/config/visual.lua
 require("config.visual")
 -- load keymappings from lua/config/keymap.lua

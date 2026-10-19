@@ -14,3 +14,9 @@ opt.spelllang = "en_us"
 opt.spell = true
 
 opt.ignorecase = true
+
+opt.termguicolors = true
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
+
