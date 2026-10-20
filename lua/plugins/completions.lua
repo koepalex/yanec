@@ -13,8 +13,18 @@ vim.keymap.set("i", "<Tab>", function()
   return "<Tab>"
 end, { expr = true, desc = "Accept completion or jump to next snippet placeholder" })
 
+local group = vim.api.nvim_create_augroup("config.completion", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = group,
+  pattern = "TelescopePrompt",
+  callback = function(event)
+    vim.bo[event.buf].autocomplete = false
+  end,
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("config.completion", { clear = true }),
+  group = group,
   callback = function(event)
     local client = assert(vim.lsp.get_client_by_id(event.data.client_id))
     if client:supports_method("textDocument/completion") then

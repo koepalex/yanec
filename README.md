@@ -116,6 +116,8 @@ their latest contents.
 `:Telescope` command, command completion, `<leader>ff` (find files), or
 `<leader>lg` (live grep). The first `vim.ui.select` call also loads Telescope
 and uses its dropdown picker. These plugins are not loaded during startup.
+Automatic completion is disabled in Telescope prompts so its popup does not
+cover the picker. Completion in normal editing buffers is unchanged.
 
 ### Code outline
 
