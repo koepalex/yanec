@@ -27,8 +27,18 @@ keymap.set("n", "gd", lsp.buf.definition, { desc = "[g]oto [d]efinition of symbo
 keymap.set("n", "gD", lsp.buf.declaration, { desc = "[g]oto [D]eclaration of symbol" })
 keymap.set("n", "<leader>sh", lsp.buf.signature_help, { desc = "show [s]ignature [h]elp of symbol" })
 
-keymap.set("n", "<leader>ne", diag.goto_next, { desc = "jump to [n]ext [e]rror" })
-keymap.set("n", "<leader>pe", diag.goto_prev, { desc = "jump to [p]revious [e]rror" })
+local function show_diagnostic_float(diagnostic)
+  if diagnostic then
+    diag.open_float({ scope = "cursor" })
+  end
+end
+
+keymap.set("n", "<leader>ne", function()
+  diag.jump({ count = 1, on_jump = show_diagnostic_float })
+end, { desc = "jump to [n]ext [e]rror" })
+keymap.set("n", "<leader>pe", function()
+  diag.jump({ count = -1, on_jump = show_diagnostic_float })
+end, { desc = "jump to [p]revious [e]rror" })
 keymap.set("n", "<leader>se", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.ERROR})<CR>", { desc = "[s]how [e]rrors in quickfix list" })
 keymap.set("n", "<leader>sw", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.WARN})<CR>", { desc = "[s]how [w]arnings in quickfix list" })
 keymap.set("n", "<leader>si", ":lua vim.diagnostic.setloclist({severity=vim.diagnostic.severity.INFO})<CR>", { desc = "[s]how [i]nfos in quickfix list" })
