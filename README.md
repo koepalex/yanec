@@ -90,6 +90,7 @@ Diffview and Telescope are enabled as Neogit integrations; Telescope is loaded
 with them if needed.
 
 Use `<leader>gi` (`show Neo[gi]t UI`) to open Neogit's status view.
+Use `<leader>gx` to close it.
 Review the Untracked, Unstaged, and Staged sections; use `<Tab>` to expand
 files and hunks, `s` to stage the item under the cursor, and `u` to unstage it.
 Press `c` to open the commit popup and choose its commit action. Only staged
@@ -105,7 +106,7 @@ changes. These actions use Diffview for side-by-side review.
 | `<leader>df` (`:DiffviewFileHistory`) | Committed history across the repository, not pending changes |
 | `:DiffviewFileHistory %` | Committed history of the current file |
 
-In Diffview, use `<Tab>` / `<S-Tab>` to cycle through files and `:DiffviewClose`
+In Diffview, use `<Tab>` / `<S-Tab>` to cycle through files and `<leader>dx` (`:DiffviewClose`)
 to return to the previous tab. Save edited buffers before reviewing so Git sees
 their latest contents.
 
